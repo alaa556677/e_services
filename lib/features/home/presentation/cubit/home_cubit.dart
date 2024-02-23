@@ -6,4 +6,9 @@ class HomeCubit extends Cubit <HomeStates>{
   static HomeCubit get(context) => BlocProvider.of(context);
 /////////////////////////////////////////////////////////////////// please insert this line after every method
 
+  int barIndex = 0 ;
+  changeIndex(index){
+    barIndex = index;
+    emit(ChangeIndexState());
+  }
 }
