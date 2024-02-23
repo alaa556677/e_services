@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/colors.dart';
+
 class HomeContainer extends StatelessWidget {
   HomeContainer({
     super.key,
@@ -18,7 +20,7 @@ class HomeContainer extends StatelessWidget {
         height: 190,
         width: 300,
         decoration:BoxDecoration(
-          color: Colors.blue,
+          color: blueColor,
           borderRadius: BorderRadiusDirectional.only(
               topStart: Radius.circular(20),
               topEnd:Radius.circular(20)),

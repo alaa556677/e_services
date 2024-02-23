@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/utils/colors.dart';
 import '../cubit/home_cubit.dart';
 import '../cubit/home_states.dart';
 import 'edit_profile_screen.dart';
@@ -23,7 +24,11 @@ class _BaseScreenState extends State<BaseScreen> {
         builder: (context, state) {
     HomeCubit homeCubit = BlocProvider.of(context);
           return Scaffold(
-            appBar: AppBar(),
+            backgroundColor: Colors.white.withOpacity(0.9),
+            appBar: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+            ),
             body:  Container(
               child: screens[homeCubit.barIndex],
             ),
@@ -51,17 +56,17 @@ class _BaseScreenState extends State<BaseScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home,color: Colors.white,),
             label: 'Home',
-            activeIcon:Icon(Icons.home,color: Colors.blue,),
+            activeIcon:Icon(Icons.home,color: blueColor,),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings,color: Colors.white,),
             label: 'Settings',
-            activeIcon:Icon(Icons.settings,color: Colors.blue,),
+            activeIcon:Icon(Icons.settings,color: blueColor,),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person,color: Colors.white,),
             label: 'Edit Profile',
-            activeIcon:Icon(Icons.person,color: Colors.blue,),
+            activeIcon:Icon(Icons.person,color: blueColor,),
           ),
         ],
       ),
