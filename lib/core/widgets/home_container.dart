@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../utils/colors.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class HomeContainer extends StatelessWidget {
   HomeContainer({
@@ -15,10 +17,10 @@ class HomeContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 190,
-        width: 300,
+        height: kIsWeb ?  MediaQuery.of(context).size.height * 0.28 : MediaQuery.of(context).size.height *0.20 ,
+        width:  kIsWeb ? MediaQuery.of(context).size.width * 0.28 : MediaQuery.of(context).size.width * 0.6  ,
         decoration:BoxDecoration(
-          color: Colors.blue,
+          color: blueColor,
           borderRadius: BorderRadiusDirectional.only(
               topStart: Radius.circular(20),
               topEnd:Radius.circular(20)),
@@ -28,23 +30,34 @@ class HomeContainer extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  height: 130,
+                  height: kIsWeb ? MediaQuery.of(context).size.height *0.18 :  MediaQuery.of(context).size.height *0.13 ,
                   decoration:BoxDecoration(
-                    color: Colors.white,
+                    color: kIsWeb ? Colors.white.withOpacity(0.9):Colors.white,
                     borderRadius: BorderRadiusDirectional.only(
                         topStart: Radius.circular(20),
                         topEnd:Radius.circular(20)),
                   ),
                 ),
-                Center(child: Image.asset(image!,height: 100,width: 100,)),
+                Center(child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(image!,
+                    height: kIsWeb ? MediaQuery.of(context).size.height *0.15: MediaQuery.of(context).size.height *0.1 ,
+                    width: kIsWeb ? MediaQuery.of(context).size.width *0.15: MediaQuery.of(context).size.width *0.2 ,),
+                )),
               ],
             ),
 
-            Text(title,
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height:  MediaQuery.of(context).size.height *0.015 ,),
+                Text(title,
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
             ),
           ],
         ),

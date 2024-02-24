@@ -1,11 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/utils/colors.dart';
+import '../../../../core/widgets/home_container.dart';
 import '../cubit/home_cubit.dart';
 import '../cubit/home_states.dart';
+import 'base_web_page.dart';
 import 'edit_profile_screen.dart';
 import 'home_screen.dart';
+import 'home_web_screen.dart';
 import 'settings_screen.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});
@@ -23,11 +30,16 @@ class _BaseScreenState extends State<BaseScreen> {
         builder: (context, state) {
     HomeCubit homeCubit = BlocProvider.of(context);
           return Scaffold(
-            appBar: AppBar(),
-            body:  Container(
-              child: screens[homeCubit.barIndex],
+            backgroundColor: Colors.white.withOpacity(0.9),
+            appBar:kIsWeb ? null: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
             ),
-            bottomNavigationBar: _buildBottomBar(homeCubit: homeCubit),
+            body:  Container(
+              child: kIsWeb ? BaseWebPage()
+                  : screens[homeCubit.barIndex],
+            ),
+            bottomNavigationBar: kIsWeb ? null :_buildBottomBar(homeCubit: homeCubit),
           );
         },
       ),
@@ -51,17 +63,17 @@ class _BaseScreenState extends State<BaseScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home,color: Colors.white,),
             label: 'Home',
-            activeIcon:Icon(Icons.home,color: Colors.blue,),
+            activeIcon:Icon(Icons.home,color: blueColor,),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings,color: Colors.white,),
             label: 'Settings',
-            activeIcon:Icon(Icons.settings,color: Colors.blue,),
+            activeIcon:Icon(Icons.settings,color: blueColor,),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person,color: Colors.white,),
             label: 'Edit Profile',
-            activeIcon:Icon(Icons.person,color: Colors.blue,),
+            activeIcon:Icon(Icons.person,color: blueColor,),
           ),
         ],
       ),
