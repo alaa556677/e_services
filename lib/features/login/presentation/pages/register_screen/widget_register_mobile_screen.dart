@@ -1,4 +1,5 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:e_services/features/home/presentation/pages/base_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -162,7 +163,10 @@ class RegisterMobileScreen extends StatelessWidget{
                             buttonWidth:
                             MediaQuery.of(context).size.width,
                             buttonHeight: 48,
-                            onPressed: (){},
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder:
+                                  (context) => BaseScreen()));
+                            },
                           ),
                           fallback: (context) => const Center(child: CircularProgressIndicator(),)
                       ),

@@ -31,13 +31,20 @@ class _BaseScreenState extends State<BaseScreen> {
     HomeCubit homeCubit = BlocProvider.of(context);
           return Scaffold(
             backgroundColor: Colors.white.withOpacity(0.9),
-            appBar:kIsWeb ? null: AppBar(
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-            ),
+
             body:  Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: kIsWeb ? AssetImage('assets/images/background_web2.jpg') : AssetImage('assets/images/starry-night-sky.jpg'),
+                    fit: BoxFit.fill,
+                  )),
               child: kIsWeb ? BaseWebPage()
-                  : screens[homeCubit.barIndex],
+                  : Padding(
+                padding:  EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.1,
+                    vertical: MediaQuery.of(context).size.height * 0.01),
+                child: screens[homeCubit.barIndex],
+              )
             ),
             bottomNavigationBar: kIsWeb ? null :_buildBottomBar(homeCubit: homeCubit),
           );

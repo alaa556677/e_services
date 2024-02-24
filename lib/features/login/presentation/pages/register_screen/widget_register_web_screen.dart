@@ -1,4 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:e_services/features/home/presentation/pages/base_screen.dart';
+import 'package:e_services/features/home/presentation/pages/base_web_page.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -170,7 +173,9 @@ class RegisterWebScreen extends StatelessWidget{
                               buttonWidth:
                               MediaQuery.of(context).size.width,
                               buttonHeight: 48,
-                              onPressed: (){},
+                              onPressed: (){
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  BaseScreen()));
+                              },
                             ),
                           ),
                           fallback: (context) => const Center(child: CircularProgressIndicator(),)

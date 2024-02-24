@@ -35,7 +35,8 @@ class _HomeWebScreenState extends State<HomeWebScreen> {
                           isHome =! isHome;
                         });
                       },
-                      image: 'assets/images/water-removebg-preview.png',
+                      image: 'assets/images/water-128.png'
+
                     ),
                      SizedBox(width: MediaQuery.of(context).size.width *0.03),
                     HomeContainer(
@@ -45,7 +46,7 @@ class _HomeWebScreenState extends State<HomeWebScreen> {
                           isHome =! isHome;
                         });
                       },
-                      image: 'assets/images/electricity.png',
+                      image: 'assets/images/electricity_icon.png',
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width *0.03),
                     HomeContainer(
@@ -55,7 +56,7 @@ class _HomeWebScreenState extends State<HomeWebScreen> {
                           isHome =! isHome;
                         });
                       },
-                      image: 'assets/images/gas.png',
+                      image: 'assets/images/gas-128.png',
                     ),
                   ],
                 ),

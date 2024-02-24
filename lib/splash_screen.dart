@@ -33,6 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
             systemNavigationBarColor: Colors.transparent,
             systemNavigationBarIconBrightness: Brightness.light
         ),
+        elevation: 0,
       ),
       body: const Center(child: Image(image: AssetImage('assets/images/splash_image.png')),),
     );

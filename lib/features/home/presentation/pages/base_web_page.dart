@@ -2,6 +2,7 @@ import 'package:e_services/core/utils/colors.dart';
 import 'package:e_services/features/home/presentation/pages/edit_profile_screen.dart';
 import 'package:e_services/features/home/presentation/pages/home_web_screen.dart';
 import 'package:e_services/features/home/presentation/pages/settings_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_tab_bar.dart';
@@ -30,25 +31,32 @@ class _BaseWebPageState extends State<BaseWebPage>
   }
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Container(
-            width: double.infinity,
-            color: Colors.white.withOpacity(0.9),
-            child: CustomTabBar(
-                tabController: tabController, tabList: tabList)),
-        Expanded(
-            child: TabBarView(
-                controller: tabController,
-                children: [
-                  HomeWebScreen(),
-                  SettingsScreen(),
-                  EditProfileScreen()
-                ]
-            )
-        ),
-      ],
+    return Container(
+      // decoration: BoxDecoration(
+      //     image: DecorationImage(
+      //       image: kIsWeb ? AssetImage('assets/images/background_web2.jpg') : AssetImage('assets/images/starry-night-sky.jpg'),
+      //       fit: BoxFit.fill,
+      //     )),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+              width: double.infinity,
+              color: Colors.white.withOpacity(0.9),
+              child: CustomTabBar(
+                  tabController: tabController, tabList: tabList)),
+          Expanded(
+              child: TabBarView(
+                  controller: tabController,
+                  children: [
+                    HomeWebScreen(),
+                    SettingsScreen(),
+                    EditProfileScreen()
+                  ]
+              )
+          ),
+        ],
+      ),
     );
   }
 

@@ -5,7 +5,7 @@ import 'custom_text.dart';
 class CustomTextFormField extends StatelessWidget {
   CustomTextFormField(
       {required this.label,
-      required this.controller,
+      this.controller,
       Key? key,
       this.validator,
       this.keyboardType,
@@ -19,7 +19,7 @@ class CustomTextFormField extends StatelessWidget {
       this.onFieldSubmitted,
         this.width = 394,
         this.focusNode,
-       required this.autoFocus,
+       this.autoFocus,
         this.contentPaddingHorizontal = 24,
         this.contentPaddingVertical = 12,
         this.radius = 10,
@@ -31,7 +31,7 @@ class CustomTextFormField extends StatelessWidget {
       : super(key: key);
   String label;
   String? hint;
-  TextEditingController controller;
+  TextEditingController? controller;
   String? Function(String?)? validator;
   TextInputType? keyboardType;
   Function(String)? onChange;

@@ -10,7 +10,12 @@ class PayBillScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      // color: Colors.white,
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/starry-night-sky.jpg'),
+            fit: BoxFit.fill,
+          )),
       child: Padding(
         padding:  EdgeInsetsDirectional.only(
             top: MediaQuery.of(context).size.height *0.05,
@@ -36,7 +41,7 @@ class PayBillScreen extends StatelessWidget {
                     height:  MediaQuery.of(context).size.height *0.65,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.1),
+                    color: Colors.grey.withOpacity(0.3),
                       borderRadius: BorderRadius.circular(20)
                     ),
                     child: Column(
@@ -64,9 +69,9 @@ class PayBillScreen extends StatelessWidget {
                     Container(
                       width:  MediaQuery.of(context).size.width *0.06,
                       height:  MediaQuery.of(context).size.height *0.06,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.white,
+                        color: Colors.black,
                         // gradient: LinearGradient(
                         //     colors: [Colors.white, constantColor]),
                       ),
@@ -79,7 +84,7 @@ class PayBillScreen extends StatelessWidget {
                       height:  MediaQuery.of(context).size.height * 0.06,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.white,
+                        color: Colors.black,
                         // gradient: LinearGradient(
                         //     colors: [Colors.white, constantColor]),
                       ),
