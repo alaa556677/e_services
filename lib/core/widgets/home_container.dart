@@ -8,12 +8,8 @@ class HomeContainer extends StatelessWidget {
     required this.title,
     this.onTap,
     this.image,
-    this. width,
-    this.height
   });
   String title;
-  double? height;
-  double? width;
   void Function()? onTap;
   String? image;
   @override
@@ -21,8 +17,8 @@ class HomeContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height:  MediaQuery.of(context).size.height *0.28 ,
-        width: width ?? MediaQuery.of(context).size.width *0.3,
+        height: kIsWeb ?  MediaQuery.of(context).size.height * 0.28 : MediaQuery.of(context).size.height *0.20 ,
+        width:  kIsWeb ? MediaQuery.of(context).size.width * 0.28 : MediaQuery.of(context).size.width * 0.6  ,
         decoration:BoxDecoration(
           color: blueColor,
           borderRadius: BorderRadiusDirectional.only(
@@ -34,7 +30,7 @@ class HomeContainer extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  height: height ??MediaQuery.of(context).size.height *0.18,
+                  height: kIsWeb ? MediaQuery.of(context).size.height *0.18 :  MediaQuery.of(context).size.height *0.13 ,
                   decoration:BoxDecoration(
                     color: kIsWeb ? Colors.white.withOpacity(0.9):Colors.white,
                     borderRadius: BorderRadiusDirectional.only(
@@ -45,8 +41,8 @@ class HomeContainer extends StatelessWidget {
                 Center(child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset(image!,
-                    height: MediaQuery.of(context).size.height *0.15,
-                    width: MediaQuery.of(context).size.width *0.15,),
+                    height: kIsWeb ? MediaQuery.of(context).size.height *0.15: MediaQuery.of(context).size.height *0.1 ,
+                    width: kIsWeb ? MediaQuery.of(context).size.width *0.15: MediaQuery.of(context).size.width *0.2 ,),
                 )),
               ],
             ),
@@ -54,7 +50,7 @@ class HomeContainer extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 15,),
+                SizedBox(height:  MediaQuery.of(context).size.height *0.015 ,),
                 Text(title,
                   style: TextStyle(
                     fontSize: 24,

@@ -12,7 +12,9 @@ class PayBillScreen extends StatelessWidget {
     return Container(
       color: Colors.white,
       child: Padding(
-        padding:  EdgeInsets.only(top:50,left: 20),
+        padding:  EdgeInsetsDirectional.only(
+            top: MediaQuery.of(context).size.height *0.05,
+            start:  MediaQuery.of(context).size.width *0.03),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -22,14 +24,16 @@ class PayBillScreen extends StatelessWidget {
           fontSize: 35,
               fontWeight: FontWeight.bold,
         ),
-            SizedBox(height: 25,),
+            SizedBox(height:  MediaQuery.of(context).size.height *0.025,),
             Stack(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 19.0),
+                  padding:  EdgeInsets.only(left:  MediaQuery.of(context).size.width *0.02),
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 40,vertical: 15),
-                    height: 600,
+                    padding: EdgeInsets.symmetric(
+                        horizontal:  MediaQuery.of(context).size.width *0.04,
+                        vertical:  MediaQuery.of(context).size.height *0.015),
+                    height:  MediaQuery.of(context).size.height *0.65,
                     width: double.infinity,
                     decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(0.1),
@@ -55,11 +59,11 @@ class PayBillScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 120,
+                      height:  MediaQuery.of(context).size.height *0.12,
                     ),
                     Container(
-                      width: 40,
-                      height: 30,
+                      width:  MediaQuery.of(context).size.width *0.06,
+                      height:  MediaQuery.of(context).size.height *0.06,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
@@ -68,11 +72,11 @@ class PayBillScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 255,
+                      height:  MediaQuery.of(context).size.height *0.268,
                     ),
                     Container(
-                      width: 40,
-                      height: 30,
+                      width:  MediaQuery.of(context).size.width * 0.06,
+                      height:  MediaQuery.of(context).size.height * 0.06,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
@@ -85,7 +89,7 @@ class PayBillScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(height:  MediaQuery.of(context).size.height *0.02,),
             Align(
               alignment: Alignment.center,
               child: Container(

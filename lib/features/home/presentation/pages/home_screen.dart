@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Center(
       child: isHome ? Padding(
-        padding:  const EdgeInsets.only(top: 20),
+        padding:   EdgeInsets.only(top:  MediaQuery.of(context).size.height *0.02 ),
         child: Column(
           children: [
             HomeContainer(
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               image: 'assets/images/water.jpg',
             ),
-            const SizedBox(height: 40,),
+            SizedBox(height: MediaQuery.of(context).size.height *0.04 ,),
             HomeContainer(
               title: 'Electricity',
               onTap: (){
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               image: 'assets/images/electricity.png',
             ),
-            SizedBox(height: 40,),
+            SizedBox(height: MediaQuery.of(context).size.height *0.04,),
             HomeContainer(
               title: 'Gas',
               onTap: (){
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               height: 100,
               width: 250,
               child: ElevatedButton(
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),)
               ),
             ),
-            SizedBox(height: 60,),
+            SizedBox(height:  MediaQuery.of(context).size.height *0.06,),
             Container(
               height: 100,
               width: 250,
