@@ -22,7 +22,7 @@ class CustomTextFormField extends StatelessWidget {
        required this.autoFocus,
         this.contentPaddingHorizontal = 24,
         this.contentPaddingVertical = 12,
-        this.radius = 25,
+        this.radius = 10,
         this.fillColor,
         this.enabledBorderColor = textGreyColor,
         this.focusBorderColor = blueColor,

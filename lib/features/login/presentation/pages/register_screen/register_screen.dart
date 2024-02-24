@@ -42,7 +42,7 @@ class RegisterScreen extends StatelessWidget {
                 //color: mainColorLight2,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: kIsWeb ? AssetImage('assets/images/background_web.jpg') : AssetImage('assets/images/starry-night-sky.jpg'),
+                      image: kIsWeb ? AssetImage('assets/images/background_web2.jpg') : AssetImage('assets/images/starry-night-sky.jpg'),
                       fit: BoxFit.fill,
                     )),
               ),

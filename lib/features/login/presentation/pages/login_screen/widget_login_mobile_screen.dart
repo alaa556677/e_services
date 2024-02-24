@@ -5,6 +5,7 @@ import '../../../../../core/utils/colors.dart';
 import '../../../../../core/widgets/button_custom_widget.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../home/presentation/pages/base_screen.dart';
 
 class LoginMobileScreen extends StatelessWidget{
   TextEditingController emailController;
@@ -90,7 +91,9 @@ class LoginMobileScreen extends StatelessWidget{
                         buttonWidth:
                         MediaQuery.of(context).size.width,
                         buttonHeight: 48,
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const BaseScreen()));
+                        },
                       ),
                       const SizedBox(height: 15,),
                       Row(

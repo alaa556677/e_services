@@ -6,7 +6,7 @@ class TabWidget extends StatelessWidget {
   final String label;
   final bool rightDivider;
 
-  TabWidget({
+  TabWidget({super.key,
     required this.label,
     required this.rightDivider,
   });
@@ -25,8 +25,7 @@ class TabWidget extends StatelessWidget {
             width: 1,
           ),
         ),
-      )
-          : null,
+      ) : null,
       child: Center(
         child: TextWidget(
           text: label,

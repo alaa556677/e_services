@@ -27,11 +27,11 @@ class RegisterWebScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional.centerEnd,
+      alignment: AlignmentDirectional.center,
       child: Padding(
-        padding: const EdgeInsetsDirectional.only(end: 20),
+        padding: const EdgeInsetsDirectional.only(end: 0),
         child: SizedBox(
-          width: 500,
+          width: 400,
           child: Form(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,29 +40,32 @@ class RegisterWebScreen extends StatelessWidget{
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ConditionalBuilder(
-                      condition: state is! UploadImageRegisterLoading,
-                      builder: (context) => GestureDetector(
-                        onTap: () {
-                          registerCubit.uploadImage();
-                        },
-                        child: registerCubit.file == null ? SvgPicture.asset(
-                          "assets/images/profilePicture.svg",
-                          color: textGreyColor,
-                          width: 80,
-                          height: 80,
-                        ) : Container(
-                          width: 80,
-                          height: 80,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image: FileImage(registerCubit.file!)
-                              )
+                    MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: ConditionalBuilder(
+                        condition: state is! UploadImageRegisterLoading,
+                        builder: (context) => GestureDetector(
+                          onTap: () {
+                            //registerCubit.uploadImage();
+                          },
+                          child: registerCubit.file == null ? SvgPicture.asset(
+                            "assets/images/profilePicture.svg",
+                            color: textGreyColor,
+                            width: 80,
+                            height: 80,
+                          ) : Container(
+                            width: 80,
+                            height: 80,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    image: FileImage(registerCubit.file!)
+                                )
+                            ),
                           ),
                         ),
+                        fallback: (context) => const Center(child: CircularProgressIndicator(),),
                       ),
-                      fallback: (context) => const Center(child: CircularProgressIndicator(),),
                     ),
                   ],
                 ),

@@ -6,6 +6,7 @@ import '../../../../../core/utils/colors.dart';
 import '../../../../../core/widgets/button_custom_widget.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../home/presentation/pages/base_screen.dart';
 
 class LoginWebScreen extends StatelessWidget{
   TextEditingController emailController;
@@ -15,11 +16,11 @@ class LoginWebScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional.centerEnd,
+      alignment: AlignmentDirectional.center,
       child: Padding(
-        padding: const EdgeInsetsDirectional.only(end: 20),
+        padding: const EdgeInsetsDirectional.only(end: 0),
         child: SizedBox(
-          width: 500,
+          width: 400,
           child: Form(
             key: formKey,
             child: Column(
@@ -97,7 +98,9 @@ class LoginWebScreen extends StatelessWidget{
                           buttonWidth:
                           MediaQuery.of(context).size.width,
                           buttonHeight: 48,
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const BaseScreen()));
+                          },
                         ),
                       ),
                       const SizedBox(height: 25,),
