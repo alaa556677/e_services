@@ -8,6 +8,7 @@ import '../../../../core/widgets/home_container.dart';
 import '../cubit/home_cubit.dart';
 import '../cubit/home_states.dart';
 import 'base_web_page.dart';
+import 'edit_profile_screen.dart';
 import 'edit_profile_screen_mobile.dart';
 import 'home_screen.dart';
 import 'home_web_screen.dart';

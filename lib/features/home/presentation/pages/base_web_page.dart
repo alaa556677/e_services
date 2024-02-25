@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_tab_bar.dart';
 import '../../../../core/widgets/tab_widget.dart';
+import 'edit_profile_screen.dart';
 
 class BaseWebPage extends StatefulWidget {
   BaseWebPage ({super.key});
