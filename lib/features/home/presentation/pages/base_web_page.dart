@@ -1,5 +1,5 @@
 import 'package:e_services/core/utils/colors.dart';
-import 'package:e_services/features/home/presentation/pages/edit_profile_screen.dart';
+import 'package:e_services/features/home/presentation/pages/edit_profile_screen_mobile.dart';
 import 'package:e_services/features/home/presentation/pages/home_web_screen.dart';
 import 'package:e_services/features/home/presentation/pages/settings_screen.dart';
 import 'package:flutter/material.dart';
