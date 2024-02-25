@@ -164,8 +164,7 @@ class RegisterMobileScreen extends StatelessWidget{
                             MediaQuery.of(context).size.width,
                             buttonHeight: 48,
                             onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder:
-                                  (context) => BaseScreen()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => BaseScreen()));
                             },
                           ),
                           fallback: (context) => const Center(child: CircularProgressIndicator(),)

@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
         elevation: 0,
       ),
-      body: const Center(child: Image(image: AssetImage('assets/images/splash_image.png')),),
+      body: const Center(child: Image(image: AssetImage('assets/images/splash_image.jpg')),),
     );
   }
 }
