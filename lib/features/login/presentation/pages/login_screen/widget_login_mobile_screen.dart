@@ -92,7 +92,7 @@ class LoginMobileScreen extends StatelessWidget{
                         MediaQuery.of(context).size.width,
                         buttonHeight: 48,
                         onPressed: (){
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const BaseScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const BaseScreen()));
                         },
                       ),
                       const SizedBox(height: 15,),

@@ -6,6 +6,7 @@ import '../../../../../core/utils/colors.dart';
 import '../../../../../core/widgets/button_custom_widget.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../home/presentation/pages/base_screen.dart';
 import '../../cubit/register_cubit.dart';
 import '../../cubit/register_states.dart';
 import '../login_screen/Login_screen.dart';
@@ -170,7 +171,9 @@ class RegisterWebScreen extends StatelessWidget{
                               buttonWidth:
                               MediaQuery.of(context).size.width,
                               buttonHeight: 48,
-                              onPressed: (){},
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => const BaseScreen()));
+                              },
                             ),
                           ),
                           fallback: (context) => const Center(child: CircularProgressIndicator(),)

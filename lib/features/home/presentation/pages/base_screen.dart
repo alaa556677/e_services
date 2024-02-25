@@ -28,18 +28,29 @@ class _BaseScreenState extends State<BaseScreen> {
       create: (context) => HomeCubit(),
       child: BlocBuilder<HomeCubit, HomeStates>(
         builder: (context, state) {
-    HomeCubit homeCubit = BlocProvider.of(context);
-          return Scaffold(
-            backgroundColor: Colors.white.withOpacity(0.9),
-            appBar:kIsWeb ? null: AppBar(
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-            ),
-            body:  Container(
-              child: kIsWeb ? BaseWebPage()
-                  : screens[homeCubit.barIndex],
-            ),
-            bottomNavigationBar: kIsWeb ? null :_buildBottomBar(homeCubit: homeCubit),
+          HomeCubit homeCubit = BlocProvider.of(context);
+          return Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: kIsWeb ? AssetImage('assets/images/background_web2.jpg') : AssetImage('assets/images/starry-night-sky.jpg'),
+                      fit: BoxFit.fill,
+                    )),
+              ),
+              Scaffold(
+                backgroundColor: Colors.transparent,
+                body:  SafeArea(
+                  child: Container(
+                    child: kIsWeb ? BaseWebPage() : screens[homeCubit.barIndex],
+                  ),
+                ),
+                bottomNavigationBar: kIsWeb ? null :_buildBottomBar(homeCubit: homeCubit),
+              ),
+            ],
           );
         },
       ),
@@ -49,11 +60,11 @@ class _BaseScreenState extends State<BaseScreen> {
   ClipRRect _buildBottomBar({HomeCubit? homeCubit}) {
     return ClipRRect(
       borderRadius: const BorderRadiusDirectional.only(
-        topEnd: Radius.circular(25),
-        topStart: Radius.circular(25),
+        topEnd: Radius.circular(0),
+        topStart: Radius.circular(0),
       ),
       child: BottomNavigationBar(
-        backgroundColor: Colors.grey.withOpacity(0.4),
+        backgroundColor: blueColor,
         elevation: 0,
         currentIndex: homeCubit!.barIndex,
         onTap: (newIndex) {
@@ -61,19 +72,19 @@ class _BaseScreenState extends State<BaseScreen> {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,color: Colors.white,),
+            icon: Icon(Icons.home,color: textGreyColor,),
             label: 'Home',
-            activeIcon:Icon(Icons.home,color: blueColor,),
+            activeIcon:Icon(Icons.home,color: whiteColor,),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings,color: Colors.white,),
+            icon: Icon(Icons.settings,color: textGreyColor,),
             label: 'Settings',
-            activeIcon:Icon(Icons.settings,color: blueColor,),
+            activeIcon:Icon(Icons.settings,color: whiteColor,),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person,color: Colors.white,),
+            icon: Icon(Icons.person,color: textGreyColor,),
             label: 'Edit Profile',
-            activeIcon:Icon(Icons.person,color: blueColor,),
+            activeIcon:Icon(Icons.person,color: whiteColor,),
           ),
         ],
       ),

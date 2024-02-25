@@ -19,7 +19,7 @@ class HomeContainer extends StatelessWidget {
       child: Container(
         height: kIsWeb ?  MediaQuery.of(context).size.height * 0.28 : MediaQuery.of(context).size.height *0.20 ,
         width:  kIsWeb ? MediaQuery.of(context).size.width * 0.28 : MediaQuery.of(context).size.width * 0.6  ,
-        decoration:BoxDecoration(
+        decoration:const BoxDecoration(
           color: blueColor,
           borderRadius: BorderRadiusDirectional.only(
               topStart: Radius.circular(20),
@@ -33,7 +33,7 @@ class HomeContainer extends StatelessWidget {
                   height: kIsWeb ? MediaQuery.of(context).size.height *0.18 :  MediaQuery.of(context).size.height *0.13 ,
                   decoration:BoxDecoration(
                     color: kIsWeb ? Colors.white.withOpacity(0.9):Colors.white,
-                    borderRadius: BorderRadiusDirectional.only(
+                    borderRadius: const BorderRadiusDirectional.only(
                         topStart: Radius.circular(20),
                         topEnd:Radius.circular(20)),
                   ),
