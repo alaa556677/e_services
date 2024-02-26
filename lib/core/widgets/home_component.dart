@@ -46,9 +46,9 @@ class HomeComponent extends StatelessWidget{
             borderRadius: BorderRadius.circular(radius),
             boxShadow: [
               BoxShadow(
-                  color: Colors.black.withOpacity(.16),
-                  // offset: const Offset (0,0),
-                  blurRadius: 5
+                  color: Colors.black.withOpacity(.2),
+                  offset: const Offset (0,0),
+                  blurRadius: 14
               )
             ]
         ),

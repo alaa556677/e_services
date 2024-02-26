@@ -23,23 +23,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding:  const EdgeInsetsDirectional.symmetric(horizontal: 0, vertical: 0),
+        padding:  const EdgeInsetsDirectional.only(top: 56),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * .1),
-              child: Container(
-                width: 80,
-                height: 80,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/logo.jpg'),
-                        fit: BoxFit.fill
-                    )
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/logo.png',
+                  width: 100,
+                  height: 100,
                 ),
-              ),
+              ],
             ),
             Container(
               width: MediaQuery.of(context).size.width,
@@ -59,9 +55,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   boxShadow: [
                     BoxShadow(
-                        color: textGreyColor.withOpacity(.6),
+                        color: blackColor.withOpacity(.2),
                         offset: const Offset(0, 0),
-                        blurRadius: 5)
+                        blurRadius: 14)
                   ]),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

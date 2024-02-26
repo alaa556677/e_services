@@ -26,16 +26,10 @@ class LoginMobileScreen extends StatelessWidget{
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: 80,
-                      height: 80,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/logo.jpg'),
-                              fit: BoxFit.fill
-                          )
-                      ),
+                    Image.asset(
+                      'assets/images/logo.png',
+                       width: 100,
+                       height: 100,
                     ),
                   ],
                 ),
@@ -43,7 +37,14 @@ class LoginMobileScreen extends StatelessWidget{
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: whiteColor
+                      color: whiteColor,
+                    boxShadow: [
+                      BoxShadow(
+                        offset: const Offset(0,0),
+                        color: Colors.black.withOpacity(.2),
+                        blurRadius: 14
+                      )
+                    ]
                   ),
                   padding: const EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 20),
                   child: Column(
@@ -123,47 +124,6 @@ class LoginMobileScreen extends StatelessWidget{
                     ],
                   ),
                 ),
-                const SizedBox(height: 20,),
-                Row(mainAxisAlignment: MainAxisAlignment.center,children: [
-                  TextWidget(
-                    text: "Or",
-                    fontSize: 16,
-                    fontWeight: FontWeight.w300,
-                    fontColor: whiteColor,
-                  )
-                ],),
-                const SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: (){},
-                      child: Container(
-                        height: 56,
-                        width: MediaQuery.of(context).size.width * .70,
-                        decoration: BoxDecoration(
-                            color: whiteColor,
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(color: textGreyColor,
-                            )
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset("assets/images/signin_google.svg"),
-                            const SizedBox(width: 10,),
-                            TextWidget(
-                              text: "Sign in with Google",
-                              fontColor: textGreyColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
@@ -172,3 +132,46 @@ class LoginMobileScreen extends StatelessWidget{
     );
   }
 }
+
+
+//const SizedBox(height: 20,),
+// Row(mainAxisAlignment: MainAxisAlignment.center,children: [
+//   TextWidget(
+//     text: "Or",
+//     fontSize: 16,
+//     fontWeight: FontWeight.w300,
+//     fontColor: blackColor,
+//   )
+// ],),
+// const SizedBox(height: 20,),
+// Row(
+//   mainAxisAlignment: MainAxisAlignment.center,
+//   children: [
+//     GestureDetector(
+//       onTap: (){},
+//       child: Container(
+//         height: 56,
+//         width: MediaQuery.of(context).size.width * .70,
+//         decoration: BoxDecoration(
+//             color: whiteColor,
+//             borderRadius: BorderRadius.circular(25),
+//             border: Border.all(color: textGreyColor,
+//             )
+//         ),
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             SvgPicture.asset("assets/images/signin_google.svg"),
+//             const SizedBox(width: 10,),
+//             TextWidget(
+//               text: "Sign in with Google",
+//               fontColor: textGreyColor,
+//               fontSize: 14,
+//               fontWeight: FontWeight.w400,
+//             ),
+//           ],
+//         ),
+//       ),
+//     ),
+//   ],
+// ),

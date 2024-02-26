@@ -42,9 +42,9 @@ class RegisterMobileScreen extends StatelessWidget{
                       condition: state is! UploadImageRegisterLoading,
                       builder: (context) => GestureDetector(
                         onTap: () {
-                          registerCubit!.uploadImage();
+                          registerCubit.uploadImage();
                         },
-                        child: registerCubit!.file == null ? SvgPicture.asset(
+                        child: registerCubit.file == null ? SvgPicture.asset(
                           "assets/images/profilePicture.svg",
                           color: textGreyColor,
                           width: 80,
@@ -55,7 +55,7 @@ class RegisterMobileScreen extends StatelessWidget{
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
-                                  image: FileImage(registerCubit!.file!)
+                                  image: FileImage(registerCubit.file!)
                               )
                           ),
                         ),
@@ -69,6 +69,13 @@ class RegisterMobileScreen extends StatelessWidget{
                   decoration: BoxDecoration(
                     color: whiteColor,
                     borderRadius: BorderRadius.circular(14),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: const Offset(0,0),
+                            color: Colors.black.withOpacity(.2),
+                            blurRadius: 14
+                        )
+                      ]
                   ),
                   padding: const EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 20),
                   child: Column(

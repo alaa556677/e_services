@@ -11,6 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../../core/widgets/button_custom_widget.dart';
 import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../core/widgets/default_screen.dart';
 import '../../cubit/register_cubit.dart';
 import '../../cubit/register_states.dart';
 
@@ -33,44 +34,17 @@ class RegisterScreen extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           registerCubit = RegisterCubit.get(context);
-          return Stack(
-            alignment: Alignment.topCenter,
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                //color: mainColorLight2,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: kIsWeb ? AssetImage('assets/images/background_web2.jpg') : AssetImage('assets/images/starry-night-sky.jpg'),
-                      fit: BoxFit.fill,
-                    )),
-              ),
-              Scaffold(
-                backgroundColor: Colors.transparent,
-                body: SafeArea(
-                  child: kIsWeb ? RegisterWebScreen(
-                      state: state,
-                      registerCubit: registerCubit!,
-                      formKey: formKey,
-                      lastNameController: lastNameController,
-                      firstNameController: firstNameController,
-                      passwordController: passwordController,
-                      emailController: emailController,
-                      repeatPasswordController: repeatPasswordController
-                  ):RegisterMobileScreen(
-                    formKey: formKey,
-                    passwordController: passwordController,
-                    emailController: emailController,
-                    firstNameController: firstNameController,
-                    lastNameController: lastNameController,
-                    registerCubit: registerCubit!,
-                    repeatPasswordController: repeatPasswordController,
-                    state: state,
-                  )
-                ),
-              ),
-            ],
+          return DefaultScreen(
+            body: RegisterMobileScreen(
+              formKey: formKey,
+              passwordController: passwordController,
+              emailController: emailController,
+              firstNameController: firstNameController,
+              lastNameController: lastNameController,
+              registerCubit: registerCubit!,
+              repeatPasswordController: repeatPasswordController,
+              state: state,
+            ),
           );
         },
       ),

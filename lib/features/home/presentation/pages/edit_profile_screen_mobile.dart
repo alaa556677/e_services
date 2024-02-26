@@ -26,16 +26,15 @@ class EditProfileMobileScreen extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              Container(
-                width: 100,
-                height: 100,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/logo.jpg'),
-                        fit: BoxFit.fill
-                    )
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/logo.png',
+                    width: 100,
+                    height: 100,
+                  ),
+                ],
               ),
               SizedBox(
                 height: 30,
@@ -43,7 +42,13 @@ class EditProfileMobileScreen extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: whiteColor
+                    color: whiteColor,
+                    boxShadow: [
+                      BoxShadow(
+                          color: blackColor.withOpacity(.2),
+                          offset: const Offset(0, 0),
+                          blurRadius: 14)
+                    ]
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.symmetric(horizontal: 14),

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:e_services/core/widgets/default_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,28 +31,13 @@ class _BaseScreenState extends State<BaseScreen> {
       child: BlocBuilder<HomeCubit, HomeStates>(
         builder: (context, state) {
           HomeCubit homeCubit = BlocProvider.of(context);
-          return Stack(
-            alignment: Alignment.topCenter,
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: kIsWeb ? AssetImage('assets/images/background_web2.jpg') : AssetImage('assets/images/starry-night-sky.jpg'),
-                      fit: BoxFit.fill,
-                    )),
+          return DefaultScreen(
+            body:  SafeArea(
+              child: Container(
+                child: kIsWeb ? BaseWebPage() : screens[homeCubit.barIndex],
               ),
-              Scaffold(
-                backgroundColor: Colors.transparent,
-                body:  SafeArea(
-                  child: Container(
-                    child: kIsWeb ? BaseWebPage() : screens[homeCubit.barIndex],
-                  ),
-                ),
-                bottomNavigationBar: kIsWeb ? null :_buildBottomBar(homeCubit: homeCubit),
-              ),
-            ],
+            ),
+            bottomNavigationBar: kIsWeb ? null :_buildBottomBar(homeCubit: homeCubit),
           );
         },
       ),
