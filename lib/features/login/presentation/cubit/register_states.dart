@@ -16,3 +16,12 @@ class RegisterError extends RegisterStates{
   String? message;
   RegisterError(this.message);
 }
+
+class LoginLoading extends RegisterStates{}
+
+class LoginSuccess extends RegisterStates{}
+
+class LoginError extends RegisterStates{
+  String? message;
+  LoginError(this.message);
+}

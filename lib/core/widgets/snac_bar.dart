@@ -1,3 +1,4 @@
+import 'package:e_services/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 void defaultSnackBar({required BuildContext context , required String text , required Color color }) {
@@ -5,9 +6,11 @@ void defaultSnackBar({required BuildContext context , required String text , req
     content: Center(
       child: Text(
           text,
-          style: Theme.of(context).textTheme.bodyMedium
+          style: const TextStyle(
+            color: whiteColor
+          )
       ),
     ),
-    backgroundColor: Theme.of(context).primaryColor,
+    backgroundColor: color,
   ));
 }
