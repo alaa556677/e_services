@@ -1,7 +1,7 @@
 import 'package:e_services/core/utils/colors.dart';
-import 'package:e_services/features/home/presentation/pages/electricity_screen.dart';
-import 'package:e_services/features/home/presentation/pages/gas_screen.dart';
-import 'package:e_services/features/home/presentation/pages/water_screen.dart';
+import 'package:e_services/features/electricity/presentation/pages/electricity_screen.dart';
+import 'package:e_services/features/gas/presentation/pages/gas_screen.dart';
+import 'package:e_services/features/water/presentation/pages/water_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 

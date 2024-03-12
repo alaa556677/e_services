@@ -2,17 +2,22 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:e_services/core/widgets/default_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/utils/colors.dart';
-import '../../../../../core/widgets/button_custom_widget.dart';
-import '../../../../../core/widgets/custom_text.dart';
-import '../../../../../core/widgets/custom_text_form_field.dart';
-import '../../../../home/presentation/pages/base_screen.dart';
-import '../../cubit/register_cubit.dart';
-import '../../cubit/register_states.dart';
-import '../register_screen/register_screen.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/widgets/button_custom_widget.dart';
+import '../../../../core/widgets/custom_text.dart';
+import '../../../../core/widgets/custom_text_form_field.dart';
+import '../../../home/presentation/pages/base_screen.dart';
+import '../cubit/register_cubit.dart';
+import '../cubit/register_states.dart';
+import 'register_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   var formKey = GlobalKey<FormState>();

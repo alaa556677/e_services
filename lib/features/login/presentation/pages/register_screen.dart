@@ -2,21 +2,26 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:e_services/core/utils/colors.dart';
 import 'package:e_services/core/widgets/snac_bar.dart';
 import 'package:e_services/features/home/presentation/pages/base_screen.dart';
-import 'package:e_services/features/login/presentation/pages/login_screen/Login_screen.dart';
+import 'package:e_services/features/login/presentation/pages/Login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../../../core/widgets/button_custom_widget.dart';
-import '../../../../../core/widgets/custom_text.dart';
-import '../../../../../core/widgets/custom_text_form_field.dart';
-import '../../../../../core/widgets/default_screen.dart';
-import '../../cubit/register_cubit.dart';
-import '../../cubit/register_states.dart';
+import '../../../../core/widgets/button_custom_widget.dart';
+import '../../../../core/widgets/custom_text.dart';
+import '../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../core/widgets/default_screen.dart';
+import '../cubit/register_cubit.dart';
+import '../cubit/register_states.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   RegisterScreen({super.key});
   static String route = "RegisterScreen";
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -24,8 +29,8 @@ class RegisterScreen extends StatelessWidget {
   TextEditingController passwordController = TextEditingController();
   TextEditingController repeatPasswordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
-
   RegisterCubit? registerCubit;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

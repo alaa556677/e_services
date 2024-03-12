@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../../core/widgets/button_custom_widget.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
-import 'base_screen.dart';
+import '../../../home/presentation/pages/base_screen.dart';
 
-class EditProfileMobileScreen extends StatelessWidget {
-  EditProfileMobileScreen({super.key});
+class EditProfileScreen extends StatelessWidget {
+  EditProfileScreen({super.key});
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController dateController = TextEditingController();

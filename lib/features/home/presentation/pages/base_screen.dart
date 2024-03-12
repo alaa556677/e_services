@@ -1,18 +1,12 @@
 import 'dart:io';
-
 import 'package:e_services/core/widgets/default_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/utils/colors.dart';
-import '../../../../core/widgets/home_container.dart';
 import '../cubit/home_cubit.dart';
 import '../cubit/home_states.dart';
-import 'base_web_page.dart';
-import 'edit_profile_screen.dart';
-import 'edit_profile_screen_mobile.dart';
+import '../../../login/presentation/pages/edit_profile_screen.dart';
 import 'home_screen.dart';
-import 'home_web_screen.dart';
 import 'settings_screen.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -34,7 +28,7 @@ class _BaseScreenState extends State<BaseScreen> {
           return DefaultScreen(
             body:  SafeArea(
               child: Container(
-                child: kIsWeb ? BaseWebPage() : screens[homeCubit.barIndex],
+                child: screens[homeCubit.barIndex],
               ),
             ),
             bottomNavigationBar: kIsWeb ? null :_buildBottomBar(homeCubit: homeCubit),

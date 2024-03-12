@@ -11,7 +11,7 @@ class DefaultScreen extends StatelessWidget{
     return Scaffold(
       backgroundColor: Colors.white.withOpacity(.9),
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(2),
+        preferredSize: Size.zero,
         child: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,

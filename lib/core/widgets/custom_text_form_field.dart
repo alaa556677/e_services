@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../utils/colors.dart';
 import 'custom_text.dart';
 
 class CustomTextFormField extends StatelessWidget {
   CustomTextFormField(
-      {required this.label,
+      {this.label,
       required this.controller,
       Key? key,
       this.validator,
@@ -29,7 +30,7 @@ class CustomTextFormField extends StatelessWidget {
         this.errorBorderColor = Colors.red,
       })
       : super(key: key);
-  String label;
+  String? label;
   String? hint;
   TextEditingController controller;
   String? Function(String?)? validator;
@@ -64,17 +65,21 @@ class CustomTextFormField extends StatelessWidget {
       onFieldSubmitted: onFieldSubmitted,
       onTap: onTap,
       enabled: isEnabled,
-      style: TextStyle(color: Colors.black, fontSize: 14),
+      style: TextStyle(color: blackColor, fontSize: 14.sp),
       readOnly: readOnly,
       decoration: InputDecoration(
         fillColor: fillColor,
           hintText: hint,
+          hintStyle: TextStyle(
+            color: textGreyColor,
+            fontSize: 14.sp,
+          ),
           contentPadding: EdgeInsets.symmetric(horizontal: contentPaddingHorizontal, vertical: contentPaddingVertical),
           helperStyle: TextStyle(height: .2),
           helperText: "",
           prefixIcon: prefix != null ? prefix : null,
           suffixIcon: suffix,
-          errorStyle: TextStyle(height: .5),
+          errorStyle: const TextStyle(height: .5),
           // errorBorder: OutlineInputBorder(
           //     borderRadius: BorderRadius.circular(15),
           //     borderSide: BorderSide(
@@ -82,14 +87,14 @@ class CustomTextFormField extends StatelessWidget {
           //     )
           // ),
           label: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 0),
+            padding: const EdgeInsets.symmetric(horizontal: 0),
             child: TextWidget(
               text: label,
               fontColor: textGreyColor,
               fontSize: 14,
             ),
           ),
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(radius),
               borderSide: BorderSide(
