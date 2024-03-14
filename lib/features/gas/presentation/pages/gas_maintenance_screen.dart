@@ -6,19 +6,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/widgets/button_custom_widget.dart';
 import '../../../../core/widgets/custom_text.dart';
-import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/default_screen.dart';
 import '../../../../core/widgets/label_Text_form_field.dart';
 import '../cubit/gas_cubit.dart';
 import '../cubit/gas_states.dart';
 
-class GasInstallationScreen extends StatelessWidget {
-  GasInstallationScreen({super.key,});
+class GasMaintenanceScreen extends StatelessWidget {
+  GasMaintenanceScreen({super.key,});
   TextEditingController nameController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController mobileController = TextEditingController();
   TextEditingController homeTypeController = TextEditingController();
   TextEditingController serviceTypeController = TextEditingController();
+  TextEditingController detailController = TextEditingController();
   late GasCubit gasCubit;
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class GasInstallationScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextWidget(
-                            text: 'التعاقد',
+                            text: 'التعديل والصيانة',
                             fontColor: blackColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 24.sp,
@@ -82,31 +82,19 @@ class GasInstallationScreen extends StatelessWidget {
                         label: 'نوع العقار',
                       ),
                       SizedBox(height: 10.h,),
-                      UploadImageCard(
-                        text: 'صورة إثبات ضخصية',
-                        onTap: () {
-                          gasCubit.uploadImageId();
-                        },
-                        imagePath: "assets/images/upload_id.png",
-                        image: gasCubit.imageId,
+                      LabelTextFormField(
+                        hintText: "الوصف",
+                        controller: detailController,
+                        label: 'وصف الحالة',
                       ),
-                      SizedBox(height: 20.h,),
-                      UploadImageCard(
-                        text: 'صورة من عقد التمليك',
-                        onTap: () {
-                          gasCubit.uploadImageContract();
-                        },
-                        imagePath: "assets/images/contract.png",
-                        image: gasCubit.imageContract,
-                      ),
-                      SizedBox(height: 20.h,),
+                      SizedBox(height: 10.h,),
                       UploadImageCard(
                         text: 'ايصال مرفق باسم العميل',
                         onTap: () {
-                          gasCubit.uploadImageReceipt();
+                          gasCubit.uploadImageReceiptMaintenance();
                         },
                         imagePath: "assets/images/bill.png",
-                        image: gasCubit.imageReceipt,
+                        image: gasCubit.imageReceiptMaintenance,
                       ),
                       SizedBox(height: 20.h,),
                       ButtonCustomWidget(

@@ -6,19 +6,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/widgets/button_custom_widget.dart';
 import '../../../../core/widgets/custom_text.dart';
-import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/default_screen.dart';
 import '../../../../core/widgets/label_Text_form_field.dart';
 import '../cubit/gas_cubit.dart';
 import '../cubit/gas_states.dart';
 
-class GasInstallationScreen extends StatelessWidget {
-  GasInstallationScreen({super.key,});
+class GasRemoveMeterScreen extends StatelessWidget {
+  GasRemoveMeterScreen({super.key,});
   TextEditingController nameController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController mobileController = TextEditingController();
-  TextEditingController homeTypeController = TextEditingController();
+  TextEditingController idController = TextEditingController();
+  TextEditingController meterReadingController = TextEditingController();
   TextEditingController serviceTypeController = TextEditingController();
+  TextEditingController detailController = TextEditingController();
   late GasCubit gasCubit;
   @override
   Widget build(BuildContext context) {
@@ -32,8 +33,7 @@ class GasInstallationScreen extends StatelessWidget {
             body: Directionality(
               textDirection: TextDirection.rtl,
               child: Padding(
-                padding: EdgeInsetsDirectional.symmetric(
-                    horizontal: 20.w, vertical: 20.h),
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w, vertical: 20.h),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +43,7 @@ class GasInstallationScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextWidget(
-                            text: 'التعاقد',
+                            text: 'رفع العداد',
                             fontColor: blackColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 24.sp,
@@ -77,38 +77,25 @@ class GasInstallationScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 10.h,),
                       LabelTextFormField(
-                        hintText: "اكتب نوع العقار",
-                        controller: homeTypeController,
-                        label: 'نوع العقار',
+                        hintText: "رقم إثبات الشخصية",
+                        controller: idController,
+                        keyboardType: TextInputType.number,
+                        label: 'رقم إثبات الشخصية',
                       ),
                       SizedBox(height: 10.h,),
-                      UploadImageCard(
-                        text: 'صورة إثبات ضخصية',
-                        onTap: () {
-                          gasCubit.uploadImageId();
-                        },
-                        imagePath: "assets/images/upload_id.png",
-                        image: gasCubit.imageId,
+                      LabelTextFormField(
+                        hintText: "القراءة",
+                        controller: meterReadingController,
+                        label: 'أحدث قراءة للعداد',
+                        keyboardType: TextInputType.number,
                       ),
-                      SizedBox(height: 20.h,),
-                      UploadImageCard(
-                        text: 'صورة من عقد التمليك',
-                        onTap: () {
-                          gasCubit.uploadImageContract();
-                        },
-                        imagePath: "assets/images/contract.png",
-                        image: gasCubit.imageContract,
+                      SizedBox(height: 10.h,),
+                      LabelTextFormField(
+                        hintText: "السبب",
+                        controller: detailController,
+                        label: 'سبب الرفع',
                       ),
-                      SizedBox(height: 20.h,),
-                      UploadImageCard(
-                        text: 'ايصال مرفق باسم العميل',
-                        onTap: () {
-                          gasCubit.uploadImageReceipt();
-                        },
-                        imagePath: "assets/images/bill.png",
-                        image: gasCubit.imageReceipt,
-                      ),
-                      SizedBox(height: 20.h,),
+                      SizedBox(height: 10.h,),
                       ButtonCustomWidget(
                         buttonColor: blueColor,
                         text: "إرسال",

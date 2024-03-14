@@ -57,4 +57,55 @@ class GasCubit extends Cubit<GasStates>{
       emit(UploadReceiptImageError());
     }
   }
+////////////////////////////////////////////////////////////////////////////////
+  File? imageReceiptMaintenance ;
+  uploadImageReceiptMaintenance () async {
+    final imagePicker = ImagePicker();
+    emit(UploadMaintenanceReceiptImageLoading());
+    try{
+      final pickedImage = await imagePicker.pickImage(source: ImageSource.camera);
+      if(pickedImage != null){
+        imageReceiptMaintenance = File(pickedImage.path);
+        emit(UploadMaintenanceReceiptImageSuccess());
+      }else{
+        emit(UploadMaintenanceReceiptImageError());
+      }
+    }catch(error){
+      emit(UploadMaintenanceReceiptImageError());
+    }
+  }
+////////////////////////////////////////////////////////////////////////////////
+  File? imageMeter;
+  uploadImageMeter () async {
+    final imagePicker = ImagePicker();
+    emit(UploadImageMeterLoading());
+    try{
+      final pickedImage = await imagePicker.pickImage(source: ImageSource.camera);
+      if(pickedImage != null){
+        imageMeter = File(pickedImage.path);
+        emit(UploadImageMeterSuccess());
+      }else{
+        emit(UploadImageMeterError());
+      }
+    }catch(error){
+      emit(UploadImageMeterError());
+    }
+  }
+////////////////////////////////////////////////////////////////////////////////
+  File? imageMeterReceipt;
+  uploadImageMeterReceipt () async {
+    final imagePicker = ImagePicker();
+    emit(UploadImageMeterReceiptLoading());
+    try{
+      final pickedImage = await imagePicker.pickImage(source: ImageSource.camera);
+      if(pickedImage != null){
+        imageMeterReceipt = File(pickedImage.path);
+        emit(UploadImageMeterReceiptSuccess());
+      }else{
+        emit(UploadImageMeterReceiptError());
+      }
+    }catch(error){
+      emit(UploadImageMeterReceiptError());
+    }
+  }
 }

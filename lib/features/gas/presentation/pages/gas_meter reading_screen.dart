@@ -12,13 +12,10 @@ import '../../../../core/widgets/label_Text_form_field.dart';
 import '../cubit/gas_cubit.dart';
 import '../cubit/gas_states.dart';
 
-class GasInstallationScreen extends StatelessWidget {
-  GasInstallationScreen({super.key,});
-  TextEditingController nameController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
-  TextEditingController mobileController = TextEditingController();
-  TextEditingController homeTypeController = TextEditingController();
-  TextEditingController serviceTypeController = TextEditingController();
+class GasMeterReadingScreen extends StatelessWidget {
+  GasMeterReadingScreen({super.key,});
+  TextEditingController nowReadingController = TextEditingController();
+  TextEditingController readingTypeController = TextEditingController();
   late GasCubit gasCubit;
   @override
   Widget build(BuildContext context) {
@@ -43,7 +40,7 @@ class GasInstallationScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextWidget(
-                            text: 'التعاقد',
+                            text: 'قراءة العداد',
                             fontColor: blackColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 24.sp,
@@ -52,61 +49,33 @@ class GasInstallationScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 20.h,),
                       LabelTextFormField(
-                        hintText: "اكتب الاسم",
-                        controller: nameController,
-                        label: 'اسم العميل',
+                        hintText: "القراءة الحالية",
+                        controller: nowReadingController,
+                        label: 'القراءة الحالية',
                       ),
                       SizedBox(height: 10.h,),
                       LabelTextFormField(
-                        hintText: "اكتب العنوان",
-                        controller: addressController,
-                        label: 'العنوان',
-                      ),
-                      SizedBox(height: 10.h,),
-                      LabelTextFormField(
-                        hintText: "اكتب رقم موبايل",
-                        controller: mobileController,
-                        label: 'رقم الموبايل',
-                        keyboardType: TextInputType.number,
-                      ),
-                      SizedBox(height: 10.h,),
-                      LabelTextFormField(
-                        hintText: "اكتب نوع الخدمة",
-                        controller: serviceTypeController,
-                        label: 'نوع الخدمة',
-                      ),
-                      SizedBox(height: 10.h,),
-                      LabelTextFormField(
-                        hintText: "اكتب نوع العقار",
-                        controller: homeTypeController,
-                        label: 'نوع العقار',
+                        hintText: "نوع القراءة",
+                        controller: readingTypeController,
+                        label: 'نوع القراءة',
                       ),
                       SizedBox(height: 10.h,),
                       UploadImageCard(
-                        text: 'صورة إثبات ضخصية',
+                        text: 'صورة العداد',
                         onTap: () {
-                          gasCubit.uploadImageId();
+                          gasCubit.uploadImageMeter();
                         },
-                        imagePath: "assets/images/upload_id.png",
-                        image: gasCubit.imageId,
+                        imagePath: 'assets/images/water_meter.png',
+                        image: gasCubit.imageMeter,
                       ),
                       SizedBox(height: 20.h,),
                       UploadImageCard(
-                        text: 'صورة من عقد التمليك',
+                        text: 'صورة من الوصل',
                         onTap: () {
-                          gasCubit.uploadImageContract();
-                        },
-                        imagePath: "assets/images/contract.png",
-                        image: gasCubit.imageContract,
-                      ),
-                      SizedBox(height: 20.h,),
-                      UploadImageCard(
-                        text: 'ايصال مرفق باسم العميل',
-                        onTap: () {
-                          gasCubit.uploadImageReceipt();
+                          gasCubit.uploadImageMeterReceipt();
                         },
                         imagePath: "assets/images/bill.png",
-                        image: gasCubit.imageReceipt,
+                        image: gasCubit.imageMeterReceipt,
                       ),
                       SizedBox(height: 20.h,),
                       ButtonCustomWidget(

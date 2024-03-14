@@ -11,6 +11,9 @@ import '../../../../core/widgets/home_component.dart';
 import '../cubit/gas_cubit.dart';
 import '../cubit/gas_states.dart';
 import 'gas_installation_screen.dart';
+import 'gas_maintenance_screen.dart';
+import 'gas_meter reading_screen.dart';
+import 'gas_remove_meter_screen.dart';
 
 class GasScreen extends StatelessWidget{
   const GasScreen({super.key});
@@ -50,7 +53,9 @@ class GasScreen extends StatelessWidget{
                       CardBasicItem(
                         title: 'التعديل والصيانة',
                         subTitle: 'يمكنك تقديم طلب للتعديل او لصيانة العداد من خلال البرنامج وسيتم التواصل معك للمتابعة',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>  GasMaintenanceScreen()));
+                        },
                         fontSizeTitle: 18.sp,
                         fontWeightTitle: FontWeight.w600,
                         fontColorSubTitle: textGreyColor,
@@ -68,7 +73,9 @@ class GasScreen extends StatelessWidget{
                       CardBasicItem(
                         title: 'قراءة العداد',
                         subTitle: 'يمكنك تصوير العداد لرفع القراءة بدون الحاجة لحضور المحصل',
-                        onTap: (){},
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>  GasMeterReadingScreen()));
+                        },
                         fontSizeTitle: 18.sp,
                         fontWeightTitle: FontWeight.w600,
                         fontColorSubTitle: textGreyColor,
@@ -86,7 +93,9 @@ class GasScreen extends StatelessWidget{
                       CardBasicItem(
                         title: 'رفع العداد',
                         subTitle: 'يمكنك تقديم طلب لرفع العداد بدود الحضور الى مقر الشركة',
-                        onTap: (){},
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>  GasRemoveMeterScreen()));
+                        },
                         fontSizeTitle: 18.sp,
                         fontWeightTitle: FontWeight.w600,
                         fontColorSubTitle: textGreyColor,
