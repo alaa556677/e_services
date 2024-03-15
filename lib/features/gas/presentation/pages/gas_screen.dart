@@ -29,7 +29,7 @@ class GasScreen extends StatelessWidget{
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CardBasicItem(
-                            title: 'التعاقد',
+                            title: 'تعاقد عداد الغاز',
                             subTitle: 'يمكنك تقديم طلب لتركيب عداد جديد بدون الحاجة للذهاب الى الشركة',
                             onTap: (){
                               Navigator.push(context, MaterialPageRoute(builder: (context) =>  GasInstallationScreen()));
@@ -49,7 +49,7 @@ class GasScreen extends StatelessWidget{
                           ),
                           SizedBox(height: 20.h,),
                           CardBasicItem(
-                            title: 'التعديل والصيانة',
+                            title: 'تعديل وصيانة عداد الغاز',
                             subTitle: 'يمكنك تقديم طلب للتعديل او لصيانة العداد من خلال البرنامج وسيتم التواصل معك للمتابعة',
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(builder: (context) =>  GasMaintenanceScreen()));
@@ -69,7 +69,7 @@ class GasScreen extends StatelessWidget{
                           ),
                           SizedBox(height: 20.h,),
                           CardBasicItem(
-                            title: 'قراءة العداد',
+                            title: 'قراءة عداد الغاز',
                             subTitle: 'يمكنك تصوير العداد لرفع القراءة بدون الحاجة لحضور المحصل',
                             onTap: (){
                               Navigator.push(context, MaterialPageRoute(builder: (context) =>  GasMeterReadingScreen()));
@@ -82,14 +82,14 @@ class GasScreen extends StatelessWidget{
                             widthContainer: MediaQuery.of(context).size.width,
                             colorContainer: whiteColor,
                             isSvg: false,
-                            pathImage: 'assets/images/water_meter.png',
+                            pathImage: 'assets/images/gas_meter.png',
                             imageWidth: 60,
                             imageHeight: 60,
                             fontColorTitle: blackColor,
                           ),
                           SizedBox(height: 20.h,),
                           CardBasicItem(
-                            title: 'رفع العداد',
+                            title: 'رفع عداد الغاز',
                             subTitle: 'يمكنك تقديم طلب لرفع العداد بدود الحضور الى مقر الشركة',
                             onTap: (){
                               Navigator.push(context, MaterialPageRoute(builder: (context) =>  GasRemoveMeterScreen()));

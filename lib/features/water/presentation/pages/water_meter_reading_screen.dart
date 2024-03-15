@@ -1,5 +1,6 @@
 import 'package:e_services/core/utils/colors.dart';
 import 'package:e_services/core/widgets/upload_image_card.dart';
+import 'package:e_services/features/water/presentation/cubit/water_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,22 +10,22 @@ import '../../../../core/widgets/custom_text.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/default_screen.dart';
 import '../../../../core/widgets/label_Text_form_field.dart';
-import '../cubit/gas_cubit.dart';
-import '../cubit/gas_states.dart';
+import '../cubit/water_states.dart';
 
-class GasMeterReadingScreen extends StatelessWidget {
-  GasMeterReadingScreen({super.key,});
+
+class WaterMeterReadingScreen extends StatelessWidget {
+  WaterMeterReadingScreen({super.key,});
   TextEditingController nowReadingController = TextEditingController();
   TextEditingController readingTypeController = TextEditingController();
-  late GasCubit gasCubit;
+  late WaterCubit waterCubit;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GasCubit(),
-      child: BlocConsumer<GasCubit, GasStates>(
+      create: (context) => WaterCubit(),
+      child: BlocConsumer<WaterCubit, WaterStates>(
         listener: (context, state) {},
         builder: (context, state) {
-          gasCubit = GasCubit.get(context);
+          waterCubit = WaterCubit.get(context);
           return DefaultScreen(
             body: Directionality(
               textDirection: TextDirection.rtl,
@@ -40,7 +41,7 @@ class GasMeterReadingScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextWidget(
-                            text: 'قراءة عداد الغاز',
+                            text: 'قراءة عداد المياه',
                             fontColor: blackColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 24.sp,
@@ -63,19 +64,19 @@ class GasMeterReadingScreen extends StatelessWidget {
                       UploadImageCard(
                         text: 'صورة العداد',
                         onTap: () {
-                          gasCubit.uploadImageMeter();
+                          waterCubit.uploadImageMeter();
                         },
-                        imagePath: 'assets/images/gas_meter.png',
-                        image: gasCubit.imageMeter,
+                        imagePath: 'assets/images/water_meter.png',
+                        image: waterCubit.imageMeter,
                       ),
                       SizedBox(height: 20.h,),
                       UploadImageCard(
                         text: 'صورة من الوصل',
                         onTap: () {
-                          gasCubit.uploadImageMeterReceipt();
+                          waterCubit.uploadImageMeterReceipt();
                         },
                         imagePath: "assets/images/bill.png",
-                        image: gasCubit.imageMeterReceipt,
+                        image: waterCubit.imageMeterReceipt,
                       ),
                       SizedBox(height: 20.h,),
                       ButtonCustomWidget(

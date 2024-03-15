@@ -7,19 +7,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/widgets/button_custom_widget.dart';
 import '../../../../core/widgets/custom_text.dart';
-import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/default_screen.dart';
 import '../../../../core/widgets/label_Text_form_field.dart';
 import '../cubit/water_states.dart';
 
-
-class WaterInstallationScreen extends StatelessWidget {
-  WaterInstallationScreen({super.key,});
+class WaterRemoveMeterScreen extends StatelessWidget {
+  WaterRemoveMeterScreen({super.key,});
   TextEditingController nameController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController mobileController = TextEditingController();
-  TextEditingController homeTypeController = TextEditingController();
+  TextEditingController idController = TextEditingController();
+  TextEditingController meterReadingController = TextEditingController();
   TextEditingController serviceTypeController = TextEditingController();
+  TextEditingController detailController = TextEditingController();
   late WaterCubit waterCubit;
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,7 @@ class WaterInstallationScreen extends StatelessWidget {
             body: Directionality(
               textDirection: TextDirection.rtl,
               child: Padding(
-                padding: EdgeInsetsDirectional.symmetric(
-                    horizontal: 20.w, vertical: 20.h),
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w, vertical: 20.h),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +43,7 @@ class WaterInstallationScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextWidget(
-                            text: 'تعاقد عداد المياه',
+                            text: 'رفع عداد المياه',
                             fontColor: blackColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 24.sp,
@@ -77,66 +76,26 @@ class WaterInstallationScreen extends StatelessWidget {
                         label: 'نوع الخدمة',
                       ),
                       SizedBox(height: 10.h,),
-                      TextWidget(
-                        text: "نوع العقار",
-                        fontSize: 14.sp,
-                        fontColor: textGreyColor,
-                        fontWeight: FontWeight.w400,
+                      LabelTextFormField(
+                        hintText: "رقم إثبات الشخصية",
+                        controller: idController,
+                        keyboardType: TextInputType.number,
+                        label: 'رقم إثبات الشخصية',
                       ),
-                      SizedBox(height: 5.h,),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: textGreyColor),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: DropdownButton(
-                            items: ['شقة', 'وحدة سكنية', 'محل إيجار'].map((e) => DropdownMenuItem(
-                                value: e,
-                                child: TextWidget(
-                                  text: e,
-                                  fontColor: blackColor,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w300,
-                                )
-                            )).toList(),
-                            padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w),
-                            borderRadius: BorderRadius.circular(10.r),
-                            underline: Container(),
-                            isExpanded: true,
-                            value: waterCubit.selectedTypeInstallation,
-                            onChanged: (val){
-                              waterCubit.changeItemInstallation(val);
-                            }
-                        ),
+                      SizedBox(height: 10.h,),
+                      LabelTextFormField(
+                        hintText: "القراءة",
+                        controller: meterReadingController,
+                        label: 'أحدث قراءة للعداد',
+                        keyboardType: TextInputType.number,
                       ),
-                      SizedBox(height: 20.h,),
-                      UploadImageCard(
-                        text: 'صورة إثبات ضخصية',
-                        onTap: () {
-                          waterCubit.uploadImageId();
-                        },
-                        imagePath: "assets/images/upload_id.png",
-                        image: waterCubit.imageId,
+                      SizedBox(height: 10.h,),
+                      LabelTextFormField(
+                        hintText: "السبب",
+                        controller: detailController,
+                        label: 'سبب الرفع',
                       ),
-                      SizedBox(height: 20.h,),
-                      UploadImageCard(
-                        text: 'صورة من عقد التمليك',
-                        onTap: () {
-                          waterCubit.uploadImageContract();
-                        },
-                        imagePath: "assets/images/contract.png",
-                        image: waterCubit.imageContract,
-                      ),
-                      SizedBox(height: 20.h,),
-                      UploadImageCard(
-                        text: 'ايصال مرفق باسم العميل',
-                        onTap: () {
-                          waterCubit.uploadImageReceipt();
-                        },
-                        imagePath: "assets/images/bill.png",
-                        image: waterCubit.imageReceipt,
-                      ),
-                      SizedBox(height: 20.h,),
+                      SizedBox(height: 10.h,),
                       ButtonCustomWidget(
                         buttonColor: blueColor,
                         text: "إرسال",

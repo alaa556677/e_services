@@ -7,19 +7,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/widgets/button_custom_widget.dart';
 import '../../../../core/widgets/custom_text.dart';
-import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/default_screen.dart';
 import '../../../../core/widgets/label_Text_form_field.dart';
 import '../cubit/water_states.dart';
 
 
-class WaterInstallationScreen extends StatelessWidget {
-  WaterInstallationScreen({super.key,});
+class WaterMaintenanceScreen extends StatelessWidget {
+  WaterMaintenanceScreen({super.key,});
   TextEditingController nameController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController mobileController = TextEditingController();
   TextEditingController homeTypeController = TextEditingController();
   TextEditingController serviceTypeController = TextEditingController();
+  TextEditingController detailController = TextEditingController();
   late WaterCubit waterCubit;
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class WaterInstallationScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextWidget(
-                            text: 'تعاقد عداد المياه',
+                            text: 'تعديل وصيانة عداد المياه',
                             fontColor: blackColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 24.sp,
@@ -109,32 +109,20 @@ class WaterInstallationScreen extends StatelessWidget {
                             }
                         ),
                       ),
-                      SizedBox(height: 20.h,),
-                      UploadImageCard(
-                        text: 'صورة إثبات ضخصية',
-                        onTap: () {
-                          waterCubit.uploadImageId();
-                        },
-                        imagePath: "assets/images/upload_id.png",
-                        image: waterCubit.imageId,
+                      SizedBox(height: 10.h,),
+                      LabelTextFormField(
+                        hintText: "الوصف",
+                        controller: detailController,
+                        label: 'وصف الحالة',
                       ),
-                      SizedBox(height: 20.h,),
-                      UploadImageCard(
-                        text: 'صورة من عقد التمليك',
-                        onTap: () {
-                          waterCubit.uploadImageContract();
-                        },
-                        imagePath: "assets/images/contract.png",
-                        image: waterCubit.imageContract,
-                      ),
-                      SizedBox(height: 20.h,),
+                      SizedBox(height: 10.h,),
                       UploadImageCard(
                         text: 'ايصال مرفق باسم العميل',
                         onTap: () {
-                          waterCubit.uploadImageReceipt();
+                          waterCubit.uploadImageReceiptMaintenance();
                         },
                         imagePath: "assets/images/bill.png",
-                        image: waterCubit.imageReceipt,
+                        image: waterCubit.imageReceiptMaintenance,
                       ),
                       SizedBox(height: 20.h,),
                       ButtonCustomWidget(

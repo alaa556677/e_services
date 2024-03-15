@@ -1,11 +1,11 @@
-import 'package:e_services/features/water/presentation/cubit/water_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'electricity_states.dart';
+import 'dart:io';
 
-class WaterCubit extends Cubit <WaterStates> {
-  WaterCubit() : super(InitialWaterState());
-  static WaterCubit get(context) => BlocProvider.of(context);
+class ElectricityCubit extends Cubit <ElectricityStates> {
+  ElectricityCubit() : super(InitialElectricityState());
+  static ElectricityCubit get(context) => BlocProvider.of(context);
 ////////////////////////////////////////////////////////////////////////////////
   File? imageId;
   uploadImageId() async {

@@ -43,7 +43,7 @@ class GasInstallationScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextWidget(
-                            text: 'التعاقد',
+                            text: 'تعاقد عداد الغاز',
                             fontColor: blackColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 24.sp,

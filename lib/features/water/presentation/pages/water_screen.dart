@@ -2,6 +2,10 @@ import 'package:e_services/core/widgets/default_screen.dart';
 import 'package:e_services/features/home/presentation/pages/pay_bill_screen.dart';
 import 'package:e_services/features/water/presentation/cubit/water_cubit.dart';
 import 'package:e_services/features/water/presentation/cubit/water_states.dart';
+import 'package:e_services/features/water/presentation/pages/water_installation_screen.dart';
+import 'package:e_services/features/water/presentation/pages/water_maintenance_screen.dart';
+import 'package:e_services/features/water/presentation/pages/water_meter_reading_screen.dart';
+import 'package:e_services/features/water/presentation/pages/water_remove_meter_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,10 +36,10 @@ class WaterScreen extends StatelessWidget{
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CardBasicItem(
-                        title: 'التعاقد',
+                        title: 'تعاقد عداد مياه',
                         subTitle: 'يمكنك تقديم طلب لتركيب عداد جديد بدون الحاجة للذهاب الى الشركة',
                         onTap: (){
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) =>  GasInstallationScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>  WaterInstallationScreen()));
                         },
                         fontSizeTitle: 18.sp,
                         fontWeightTitle: FontWeight.w600,
@@ -52,10 +56,10 @@ class WaterScreen extends StatelessWidget{
                       ),
                       SizedBox(height: 20.h,),
                       CardBasicItem(
-                        title: 'التعديل والصيانة',
+                        title: 'تعديل وصيانة عداد المياه',
                         subTitle: 'يمكنك تقديم طلب للتعديل او لصيانة العداد من خلال البرنامج وسيتم التواصل معك للمتابعة',
                         onTap: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) =>  GasMaintenanceScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>  WaterMaintenanceScreen()));
                         },
                         fontSizeTitle: 18.sp,
                         fontWeightTitle: FontWeight.w600,
@@ -72,10 +76,10 @@ class WaterScreen extends StatelessWidget{
                       ),
                       SizedBox(height: 20.h,),
                       CardBasicItem(
-                        title: 'قراءة العداد',
+                        title: 'قراءة عداد المياه',
                         subTitle: 'يمكنك تصوير العداد لرفع القراءة بدون الحاجة لحضور المحصل',
                         onTap: (){
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) =>  GasMeterReadingScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>  WaterMeterReadingScreen()));
                         },
                         fontSizeTitle: 18.sp,
                         fontWeightTitle: FontWeight.w600,
@@ -92,10 +96,10 @@ class WaterScreen extends StatelessWidget{
                       ),
                       SizedBox(height: 20.h,),
                       CardBasicItem(
-                        title: 'رفع العداد',
+                        title: 'رفع عداد المياه',
                         subTitle: 'يمكنك تقديم طلب لرفع العداد بدود الحضور الى مقر الشركة',
                         onTap: (){
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) =>  GasRemoveMeterScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>  WaterRemoveMeterScreen()));
                         },
                         fontSizeTitle: 18.sp,
                         fontWeightTitle: FontWeight.w600,

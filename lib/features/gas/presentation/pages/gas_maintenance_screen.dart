@@ -43,7 +43,7 @@ class GasMaintenanceScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextWidget(
-                            text: 'التعديل والصيانة',
+                            text: 'تعديل وصيانة عداد الغاز',
                             fontColor: blackColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 24.sp,
