@@ -76,12 +76,39 @@ class GasInstallationScreen extends StatelessWidget {
                         label: 'نوع الخدمة',
                       ),
                       SizedBox(height: 10.h,),
-                      LabelTextFormField(
-                        hintText: "اكتب نوع العقار",
-                        controller: homeTypeController,
-                        label: 'نوع العقار',
+                      TextWidget(
+                        text: "نوع العقار",
+                        fontSize: 14.sp,
+                        fontColor: textGreyColor,
+                        fontWeight: FontWeight.w400,
                       ),
-                      SizedBox(height: 10.h,),
+                      SizedBox(height: 5.h,),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: textGreyColor),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: DropdownButton(
+                          items: ['شقة', 'وحدة سكنية', 'محل إيجار'].map((e) => DropdownMenuItem(
+                            value: e,
+                            child: TextWidget(
+                              text: e,
+                              fontColor: blackColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w300,
+                            )
+                          )).toList(),
+                          padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w),
+                          borderRadius: BorderRadius.circular(10.r),
+                          underline: Container(),
+                          isExpanded: true,
+                          value: gasCubit.selectedTypeInstallation,
+                          onChanged: (val){
+                            gasCubit.changeItemInstallation(val);
+                          }
+                        ),
+                      ),
+                      SizedBox(height: 20.h,),
                       UploadImageCard(
                         text: 'صورة إثبات ضخصية',
                         onTap: () {

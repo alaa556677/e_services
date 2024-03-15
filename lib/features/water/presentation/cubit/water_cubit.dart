@@ -1,12 +1,13 @@
+import 'package:e_services/features/water/presentation/cubit/water_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
-import 'gas_states.dart';
 import 'dart:io';
 
-class GasCubit extends Cubit<GasStates>{
-  GasCubit(): super(InitialGasState());
-  static GasCubit get(context) => BlocProvider.of(context);
-////////////////////////////////////////////////////////////////////////////////
+import 'package:image_picker/image_picker.dart';
+
+class WaterCubit extends Cubit <WaterStates> {
+  WaterCubit() : super(InitialWaterState());
+  static WaterCubit get(context) => BlocProvider.of(context);
+
   File? imageId;
   uploadImageId() async {
     final imagePicker = ImagePicker();
@@ -115,5 +116,4 @@ class GasCubit extends Cubit<GasStates>{
     emit (ChangeItemInstallation());
   }
 ////////////////////////////////////////////////////////////////////////////////
-
 }

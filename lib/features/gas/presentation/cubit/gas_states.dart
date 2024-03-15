@@ -25,3 +25,5 @@ class UploadImageMeterError extends GasStates{}
 class UploadImageMeterReceiptLoading extends GasStates{}
 class UploadImageMeterReceiptSuccess extends GasStates{}
 class UploadImageMeterReceiptError extends GasStates{}
+
+class ChangeItemInstallation extends GasStates{}

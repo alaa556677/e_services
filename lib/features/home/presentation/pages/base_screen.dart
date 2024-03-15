@@ -45,7 +45,7 @@ class _BaseScreenState extends State<BaseScreen> {
         topStart: Radius.circular(0),
       ),
       child: BottomNavigationBar(
-        backgroundColor: blueColor,
+        backgroundColor: blueColor.withOpacity(.9),
         elevation: 0,
         currentIndex: homeCubit!.barIndex,
         onTap: (newIndex) {
@@ -53,17 +53,17 @@ class _BaseScreenState extends State<BaseScreen> {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,color: textGreyColor,),
+            icon: Icon(Icons.home,color: blackColor,),
             label: 'Home',
             activeIcon:Icon(Icons.home,color: whiteColor,),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings,color: textGreyColor,),
+            icon: Icon(Icons.settings,color: blackColor,),
             label: 'Settings',
             activeIcon:Icon(Icons.settings,color: whiteColor,),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person,color: textGreyColor,),
+            icon: Icon(Icons.person,color: blackColor,),
             label: 'Edit Profile',
             activeIcon:Icon(Icons.person,color: whiteColor,),
           ),
