@@ -155,8 +155,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               const SizedBox(height: 15),
                               CustomTextFormField(
                                 autoFocus: false,
+                                keyboardType: TextInputType.number,
                                 controller: idController,
-                                label: "ID",
+                                maxLength: 14,
+                                label: "National ID",
                                 validator: (value) {
                                   if (value!.isEmpty) {
                                     return 'require';
