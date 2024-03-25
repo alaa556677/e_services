@@ -76,7 +76,7 @@ class _BaseScreenState extends State<BaseScreen> {
 
   List screens = [
     AdminHomeScreen(),
-    HomeScreen(),
+    //HomeScreen(),
     SettingsScreen(),
     EditProfileScreen(),
   ];
