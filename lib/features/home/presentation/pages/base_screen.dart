@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:e_services/core/widgets/default_screen.dart';
+import 'package:e_services/features/home/presentation/pages/admin_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/colors.dart';
@@ -74,6 +75,7 @@ class _BaseScreenState extends State<BaseScreen> {
 
 
   List screens = [
+    AdminHomeScreen(),
     HomeScreen(),
     SettingsScreen(),
     EditProfileScreen(),
