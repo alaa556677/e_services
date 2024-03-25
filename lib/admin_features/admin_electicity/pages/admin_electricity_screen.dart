@@ -1,5 +1,6 @@
 import 'package:e_services/admin_features/admin_electicity/pages/admin_electricity_installation_requests_screen.dart';
 import 'package:e_services/admin_features/admin_electicity/pages/admin_electricity_maintenance_requests_screen.dart';
+import 'package:e_services/admin_features/admin_electicity/pages/admin_electricity_meter_readin_requests_screen.dart';
 import 'package:e_services/admin_features/admin_electicity/pages/admin_electricity_remove_meter_requests_screen.dart';
 import 'package:e_services/core/utils/colors.dart';
 import 'package:e_services/core/widgets/card_basic_item.dart';
@@ -64,6 +65,26 @@ class AdminElectricityScreen extends StatelessWidget {
                         colorContainer: whiteColor,
                         isSvg: false,
                         pathImage: 'assets/images/maintenance.png',
+                        imageWidth: 60,
+                        imageHeight: 60,
+                        fontColorTitle: blackColor,
+                      ),
+                      SizedBox(height: 20.h,),
+                      CardBasicItem(
+                        title: 'قراءة عداد الكهرباء',
+                        subTitle: 'القراءات المرسلة من جهة المستهلك',
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>  AdminElectricityMeterReadingRequestScreen()));
+                        },
+                        fontSizeTitle: 18.sp,
+                        fontWeightTitle: FontWeight.w600,
+                        fontColorSubTitle: textGreyColor,
+                        fontSizeSubTitle: 12.sp,
+                        fontWeightSubTitle: FontWeight.w300,
+                        widthContainer: MediaQuery.of(context).size.width,
+                        colorContainer: whiteColor,
+                        isSvg: false,
+                        pathImage: 'assets/images/gas_meter.png',
                         imageWidth: 60,
                         imageHeight: 60,
                         fontColorTitle: blackColor,

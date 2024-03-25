@@ -119,13 +119,13 @@ class AdminElectricityMaintenanceScreen extends StatelessWidget {
                           child: Text("مرفوض",style: TextStyle(color: Colors.white),),
                         ),
                       ),
-                      SizedBox(width: 3.0,),
+                      SizedBox(width: 50.0,),
                       Expanded(
                         flex: 1,
                         child: MaterialButton(
                           onPressed: (){},
                           height: 50.0,
-                          color: Colors.green,
+                          color: blueColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0)
                           ),
